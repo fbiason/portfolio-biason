@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaLanguage } from 'react-icons/fa';
 import ProjectCard from './components/ProjectCard';
 import ContactForm from './components/ContactForm';
 import SkillsSection from './components/SkillsSection';
 import BackToTop from './components/BackToTop';
+import { translations } from './translations';
 
-function NavBar({ isMenuOpen, setIsMenuOpen }) {
+function NavBar({ isMenuOpen, setIsMenuOpen, language, toggleLanguage }) {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-dark-blue bg-opacity-90 backdrop-blur-md z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,24 +16,35 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
             <span className="text-2xl font-bold gradient-text">FB</span>
           </div>
           
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-4">
-              <a href="#about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                About
-              </a>
-              <a href="#skills" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Skills
-              </a>
-              <a href="#projects" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Projects
-              </a>
-              <a href="#contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Contact
-              </a>
-            </div>
+          <div className="hidden md:flex items-center space-x-4">
+            <a href="#about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              {translations[language].aboutMe}
+            </a>
+            <a href="#skills" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              {translations[language].skills}
+            </a>
+            <a href="#projects" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              {translations[language].projects}
+            </a>
+            <a href="#contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              {translations[language].contact}
+            </a>
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              <FaLanguage className="text-xl" />
+              <span>{language.toUpperCase()}</span>
+            </button>
           </div>
           
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={toggleLanguage}
+              className="text-gray-300 hover:text-white p-2"
+            >
+              <FaLanguage className="text-xl" />
+            </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
@@ -48,16 +60,16 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="#about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              About
+              {translations[language].aboutMe}
             </a>
             <a href="#skills" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Skills
+              {translations[language].skills}
             </a>
             <a href="#projects" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Projects
+              {translations[language].projects}
             </a>
             <a href="#contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Contact
+              {translations[language].contact}
             </a>
           </div>
         </div>
@@ -66,7 +78,7 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
   );
 }
 
-function HeroSection() {
+function HeroSection({ language }) {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16">
       <div className="max-w-4xl mx-auto px-4 text-center">
@@ -75,8 +87,8 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl md:text-7xl font-bold mb-6"
         >
-          Bienvenido
-          <span className="gradient-text"> Soy Franco</span>
+          {translations[language].welcome}
+          <span className="gradient-text"> {translations[language].im}</span>
         </motion.h2>
         
         <motion.p 
@@ -85,7 +97,7 @@ function HeroSection() {
           transition={{ delay: 0.2 }}
           className="text-xl text-gray-300 mb-8"
         >
-          Licenciado en Administración & Web Developer
+          {translations[language].role}
         </motion.p>
         
         <motion.div
@@ -98,13 +110,13 @@ function HeroSection() {
             href="#contact"
             className="bg-primary text-white hover:bg-accent px-6 py-3 rounded-full font-semibold transition-colors duration-300"
           >
-            Contact Me
+            {translations[language].contactMe}
           </a>
           <a
             href="#projects"
             className="border-2 border-primary text-white hover:bg-primary hover:border-primary px-6 py-3 rounded-full font-semibold transition-colors duration-300"
           >
-            View Projects
+            {translations[language].viewProjects}
           </a>
         </motion.div>
       </div>
@@ -112,15 +124,15 @@ function HeroSection() {
   );
 }
 
-function AboutSection() {
+function AboutSection({ language }) {
   return (
     <section id="about" className="py-16 px-4">
       <div className="max-w-4xl mx-auto">
-        <h3 className="text-3xl font-bold mb-6">About Me</h3>
+        <h3 className="text-3xl font-bold mb-6">{translations[language].aboutMe}</h3>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
             <p className="text-gray-300">
-              I am a Frontend Developer with experience in React and modern web technologies. I focus on creating responsive and user-friendly web applications.
+              {translations[language].aboutDescription}
             </p>
           </div>
         </div>
@@ -129,11 +141,11 @@ function AboutSection() {
   );
 }
 
-function SkillsSectionContainer() {
+function SkillsSectionContainer({ language }) {
   return (
     <section id="skills" className="py-16 px-4 bg-dark-blue/50">
       <div className="max-w-6xl mx-auto">
-        <h3 className="text-3xl font-bold mb-12 text-center">Skills</h3>
+        <h3 className="text-3xl font-bold mb-12 text-center">{translations[language].skills}</h3>
         <SkillsSection />
       </div>
     </section>
@@ -192,7 +204,7 @@ const projects = [
   }
 ];
 
-function ProjectsSection() {
+function ProjectsSection({ language }) {
   return (
     <section id="projects" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -203,10 +215,10 @@ function ProjectsSection() {
           className="text-center mb-16"
         >
           <h3 className="text-4xl font-bold mb-4">
-            Proyectos <span className="gradient-text">Destacados</span>
+            <span className="gradient-text">{translations[language].featuredProjects}</span>
           </h3>
           <p className="text-gray-400 max-w-2xl mx-auto">
-          Los invito a conocer algunos de mis trabajos recientes.
+            {translations[language].projectsDescription}
           </p>
         </motion.div>
 
@@ -220,11 +232,11 @@ function ProjectsSection() {
   );
 }
 
-function ContactSection() {
+function ContactSection({ language }) {
   return (
     <section id="contact" className="py-16 px-4 bg-dark-blue/50">
       <div className="max-w-4xl mx-auto">
-        <h3 className="text-3xl font-bold mb-12 text-center">Contact</h3>
+        <h3 className="text-3xl font-bold mb-12 text-center">{translations[language].contact}</h3>
         <ContactForm />
       </div>
     </section>
@@ -233,16 +245,26 @@ function ContactSection() {
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [language, setLanguage] = useState('es');
+  
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'es' ? 'en' : 'es');
+  };
   
   return (
     <div className="min-h-screen bg-dark">
-      <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <NavBar 
+        isMenuOpen={isMenuOpen} 
+        setIsMenuOpen={setIsMenuOpen}
+        language={language}
+        toggleLanguage={toggleLanguage}
+      />
       <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSectionContainer />
-        <ProjectsSection />
-        <ContactSection />
+        <HeroSection language={language} />
+        <AboutSection language={language} />
+        <SkillsSectionContainer language={language} />
+        <ProjectsSection language={language} />
+        <ContactSection language={language} />
       </main>
       <BackToTop />
     </div>
