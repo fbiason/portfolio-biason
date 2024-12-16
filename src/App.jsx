@@ -156,14 +156,14 @@ const projects = [
   {
     title: "Biason Automotores",
     description: "Agencia de compra venta de vehículos",
-    image: "/images/biason-automotores.png",
+    image: "/images/biason-automotores.mkv",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://biasonautomotores.com.ar/"
   },
   {
     title: "ML Legales",
     description: "Estudio Jurídico",
-    image: "/images/ml-legales.png",
+    image: "/images/ml-legales.mkv",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://mllegales.com.ar/"
   },
@@ -177,28 +177,28 @@ const projects = [
   {
     title: "Escuela de Fútbol Rosales",
     description: "Escuela de Formación de Fútbol",
-    image: "/images/escuela-futbol.png",
+    image: "/images/escuela-futbol.mkv",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://www.escueladefutbolrosales.com.ar/"
   },
   {
     title: "La Bancaria Santa Cruz",
     description: "Sindicato Bancario",
-    image: "/images/labancaria.png",
+    image: "/images/labancaria.mkv",
     tags: ["WordPress"],
     link: "https://labancariasantacruz.org.ar/"
   },
   {
     title: "TEA Santa Cruz",
     description: "Fundación TEA Santa Cruz",
-    image: "/images/tea.png",
+    image: "/images/tea.mkv",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://fundacionteasantacruz.org.ar/"
   },
   {
     title: "Vefrek",
     description: "Catálogo del rubro automotor",
-    image: "/images/vefrek.png",
+    image: "/images/vefrek.mkv",
     tags: ["React", "Tailwind", "JavaScript", "TypeScript"],
     link: "https://vefrek.com/"
   }
@@ -237,7 +237,7 @@ function ContactSection({ language }) {
     <section id="contact" className="py-16 px-4 bg-dark-blue/50">
       <div className="max-w-4xl mx-auto">
         <h3 className="text-3xl font-bold mb-12 text-center">{translations[language].contact}</h3>
-        <ContactForm />
+        <ContactForm language={language} />
       </div>
     </section>
   );

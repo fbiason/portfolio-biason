@@ -1,84 +1,152 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs';
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+const ContactForm = ({ language }) => {
+  const form = useRef();
+  const [status, setStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: null
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+  useEffect(() => {
+    // Inicializa EmailJS
+    emailjs.init(EMAILJS_CONFIG.publicKey);
+  }, []);
+
+  const messages = {
+    es: {
+      name: "Nombre",
+      email: "Correo electrónico",
+      message: "Mensaje",
+      send: "Enviar mensaje",
+      sending: "Enviando...",
+      success: "¡Mensaje enviado con éxito!",
+      error: "Hubo un error al enviar el mensaje. Por favor, intenta nuevamente."
+    },
+    en: {
+      name: "Name",
+      email: "Email",
+      message: "Message",
+      send: "Send message",
+      sending: "Sending...",
+      success: "Message sent successfully!",
+      error: "There was an error sending your message. Please try again."
+    }
   };
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ submitting: true, submitted: false, error: null });
+
+    const templateParams = {
+      from_name: form.current.user_name.value,
+      from_email: form.current.user_email.value,
+      message: form.current.message.value,
+      to_email: 'franco.biason@gmail.com'
+    };
+
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        templateParams
+      );
+
+      setStatus({
+        submitting: false,
+        submitted: true,
+        error: null
+      });
+      form.current.reset();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error: true
+      });
+    }
   };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="w-full max-w-md mx-auto"
+      transition={{ duration: 0.5 }}
+      className="max-w-lg mx-auto"
     >
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form ref={form} onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-300">
-            Name
+          <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+            {messages[language]?.name || messages.en.name}
           </label>
           <input
             type="text"
+            name="user_name"
             id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white shadow-sm focus:border-primary focus:ring-primary"
             required
+            className="w-full px-4 py-3 bg-dark-blue/30 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300 text-white"
           />
         </div>
-        
+
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-            Email
+          <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+            {messages[language]?.email || messages.en.email}
           </label>
           <input
             type="email"
+            name="user_email"
             id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white shadow-sm focus:border-primary focus:ring-primary"
             required
+            className="w-full px-4 py-3 bg-dark-blue/30 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300 text-white"
           />
         </div>
-        
+
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-300">
-            Message
+          <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+            {messages[language]?.message || messages.en.message}
           </label>
           <textarea
-            id="message"
             name="message"
-            rows={4}
-            value={formData.message}
-            onChange={handleChange}
-            className="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white shadow-sm focus:border-primary focus:ring-primary"
+            id="message"
+            rows="4"
             required
-          />
+            className="w-full px-4 py-3 bg-dark-blue/30 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300 text-white resize-none"
+          ></textarea>
         </div>
-        
+
         <button
           type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          disabled={status.submitting}
+          className="w-full bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 active:bg-blue-700 transition-all duration-300 font-medium text-base disabled:bg-gray-500 disabled:cursor-not-allowed"
         >
-          Send Message
+          {status.submitting 
+            ? messages[language]?.sending 
+            : messages[language]?.send}
         </button>
+
+        {status.submitted && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-green-500 text-center mt-4 p-3 bg-green-500/10 rounded-lg"
+          >
+            {messages[language]?.success}
+          </motion.div>
+        )}
+
+        {status.error && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-red-500 text-center mt-4 p-3 bg-red-500/10 rounded-lg"
+          >
+            {messages[language]?.error}
+          </motion.div>
+        )}
       </form>
     </motion.div>
   );

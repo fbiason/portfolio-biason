@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const ProjectCard = ({ title, description, image, tags, link }) => {
-  const isVideo = image.endsWith('.mp4');
+  const isVideo = image.endsWith('.mp4') || image.endsWith('.mkv');
 
   return (
     <motion.div
