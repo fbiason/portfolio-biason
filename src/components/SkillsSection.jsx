@@ -1,72 +1,86 @@
 import { motion } from 'framer-motion';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaAngular, FaWordpress } from 'react-icons/fa';
+import { SiVtex, SiMicrosoftoffice, SiGoogledrive } from 'react-icons/si';
 
-const skills = [
-  {
-    category: "Desarrollo Web",
-    technologies: [
-      { name: "HTML/CSS", level: 90 },
-      { name: "JavaScript", level: 80 },
-      { name: "React", level: 60 },
-      { name: "Angular", level: 30 },
-      { name: "Python", level: 55 },
-    ]
-  },
-  {
-    category: "Herramientas y Plataformas",
-    technologies: [
-      { name: "VTEX", level: 75 },
-      { name: "Git", level: 85 },
-      { name: "Node.js", level: 75 },
-      { name: "Tailwind CSS", level: 50 },
-      { name: "WindSurf", level: 80 },
-    ]
-  },
-  {
-    category: "Herramientas de Oficina",
-    technologies: [
-      { name: "Microsoft Excel", level: 95 },
-      { name: "Microsoft Word", level: 90 },
-      { name: "SQL", level: 70 },
-    ]
-  }
+const hardSkills = [
+  { name: "HTML", icon: FaHtml5, color: "text-[#E44D26]" },
+  { name: "CSS", icon: FaCss3Alt, color: "text-[#264DE4]" },
+  { name: "JavaScript", icon: FaJs, color: "text-[#F7DF1E]" },
+  { name: "React", icon: FaReact, color: "text-[#61DAFB]" },
+  { name: "Angular", icon: FaAngular, color: "text-[#DD0031]" },
+  { name: "WordPress", icon: FaWordpress, color: "text-[#21759B]" },
+  { name: "VTEX", icon: SiVtex, color: "text-[#F71963]" },
 ];
 
-const SkillBar = ({ name, level }) => (
-  <div className="mb-4">
-    <div className="flex justify-between mb-1">
-      <span className="text-sm font-medium text-gray-300">{name}</span>
-      <span className="text-sm font-medium text-gray-400">{level}%</span>
-    </div>
-    <div className="w-full bg-gray-700 rounded-full h-2.5">
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: `${level}%` }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="h-2.5 rounded-full bg-gradient-to-r from-primary to-accent"
-      />
-    </div>
+const softSkills = [
+  "Comunicación efectiva",
+  "Trabajo en equipo",
+  "Resolución de problemas",
+  "Adaptabilidad",
+  "Liderazgo",
+  "Pensamiento crítico",
+  "Creatividad",
+  "Gestión del tiempo"
+];
+
+const tools = [
+  { name: "Microsoft Office", icon: SiMicrosoftoffice },
+  { name: "Google Drive", icon: SiGoogledrive }
+];
+
+const SkillIcon = ({ Icon, name, color }) => (
+  <div className="flex flex-col items-center gap-2 p-4">
+    <Icon className={`text-4xl ${color} hover:scale-110 transition-transform`} />
+    <span className="text-sm text-gray-300">{name}</span>
   </div>
 );
 
 const SkillsSection = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {skills.map((skillGroup, index) => (
-        <motion.div
-          key={skillGroup.category}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
-          className="bg-dark-blue p-6 rounded-lg shadow-xl"
-        >
-          <h4 className="text-xl font-bold mb-4 gradient-text">{skillGroup.category}</h4>
-          <div className="space-y-4">
-            {skillGroup.technologies.map((tech) => (
-              <SkillBar key={tech.name} {...tech} />
-            ))}
-          </div>
-        </motion.div>
-      ))}
+    <div className="grid gap-12">
+      {/* Hard Skills */}
+      <div>
+        <h4 className="text-2xl font-semibold mb-6">Hard Skills</h4>
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          {hardSkills.map((skill, index) => (
+            <SkillIcon
+              key={index}
+              Icon={skill.icon}
+              name={skill.name}
+              color={skill.color}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Soft Skills */}
+      <div>
+        <h4 className="text-2xl font-semibold mb-6">Soft Skills</h4>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {softSkills.map((skill, index) => (
+            <div
+              key={index}
+              className="p-4 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors"
+            >
+              <span className="text-gray-300">{skill}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Tools */}
+      <div>
+        <h4 className="text-2xl font-semibold mb-6">Tools</h4>
+        <div className="flex gap-8">
+          {tools.map((tool, index) => (
+            <SkillIcon
+              key={index}
+              Icon={tool.icon}
+              name={tool.name}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

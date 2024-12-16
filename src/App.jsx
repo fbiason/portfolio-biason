@@ -68,32 +68,31 @@ function NavBar({ isMenuOpen, setIsMenuOpen }) {
 
 function HeroSection() {
   return (
-    <section id="home" className="section-padding pt-32 min-h-screen flex items-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial from-accent/10 via-transparent to-transparent opacity-30" />
-      <div className="max-w-4xl mx-auto text-center relative z-10">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-16">
+      <div className="max-w-4xl mx-auto px-4 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl md:text-7xl font-bold mb-6"
         >
-          Welcome
-          <span className="gradient-text"> I'm Franco</span>
+          Bienvenido
+          <span className="gradient-text"> Soy Franco</span>
         </motion.h2>
         
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+          className="text-xl text-gray-300 mb-8"
         >
-          Frontend Developer passionate about creating beautiful and functional web experiences
+          Licenciado en Administración & Web Developer
         </motion.p>
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="flex justify-center space-x-4 max-w-2xl mx-auto"
+          className="flex justify-center gap-4"
         >
           <a
             href="#contact"
@@ -115,14 +114,8 @@ function HeroSection() {
 
 function AboutSection() {
   return (
-    <section id="about" className="section-padding relative">
-      <div className="absolute inset-0 bg-gradient-conic from-primary/20 via-transparent to-transparent opacity-20" />
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-4xl mx-auto relative z-10"
-      >
+    <section id="about" className="py-16 px-4">
+      <div className="max-w-4xl mx-auto">
         <h3 className="text-3xl font-bold mb-6">About Me</h3>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
@@ -131,14 +124,14 @@ function AboutSection() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
 
 function SkillsSectionContainer() {
   return (
-    <section id="skills" className="section-padding bg-dark-blue/50">
+    <section id="skills" className="py-16 px-4 bg-dark-blue/50">
       <div className="max-w-6xl mx-auto">
         <h3 className="text-3xl font-bold mb-12 text-center">Skills</h3>
         <SkillsSection />
@@ -149,26 +142,74 @@ function SkillsSectionContainer() {
 
 const projects = [
   {
-    title: "Project 1",
-    description: "Description of project 1",
-    image: "/project1.jpg",
-    tags: ["React", "TailwindCSS"],
-    link: "https://project1.com"
+    title: "Biason Automotores",
+    description: "Agencia de compra venta de vehículos",
+    image: "/images/biason-automotores.png",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://biasonautomotores.com.ar/"
   },
   {
-    title: "Project 2",
-    description: "Description of project 2",
-    image: "/project2.jpg",
-    tags: ["JavaScript", "CSS"],
-    link: "https://project2.com"
+    title: "ML Legales",
+    description: "Estudio Jurídico",
+    image: "/images/ml-legales.png",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://mllegales.com.ar/"
+  },
+  {
+    title: "Ecommerce - VTEX",
+    description: "Modelo de Ecommerce desarrollado con VTEX IO",
+    image: "/images/ecommerce-vtex.mp4",
+    tags: ["VTEX IO"],
+    link: "#"
+  },
+  {
+    title: "Escuela de Fútbol Rosales",
+    description: "Escuela de Formación de Fútbol",
+    image: "/images/escuela-futbol.png",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://www.escueladefutbolrosales.com.ar/"
+  },
+  {
+    title: "La Bancaria Santa Cruz",
+    description: "Sindicato Bancario",
+    image: "/images/labancaria.png",
+    tags: ["WordPress"],
+    link: "https://labancariasantacruz.org.ar/"
+  },
+  {
+    title: "TEA Santa Cruz",
+    description: "Fundación TEA Santa Cruz",
+    image: "/images/tea.png",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://fundacionteasantacruz.org.ar/"
+  },
+  {
+    title: "Vefrek",
+    description: "Catálogo del rubro automotor",
+    image: "/images/vefrek.png",
+    tags: ["React", "Tailwind", "JavaScript", "TypeScript"],
+    link: "https://vefrek.com/"
   }
 ];
 
 function ProjectsSection() {
   return (
-    <section id="projects" className="section-padding">
-      <div className="max-w-6xl mx-auto">
-        <h3 className="text-3xl font-bold mb-12 text-center">Projects</h3>
+    <section id="projects" className="py-20 px-4">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h3 className="text-4xl font-bold mb-4">
+            Proyectos <span className="gradient-text">Destacados</span>
+          </h3>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+          Los invito a conocer algunos de mis trabajos recientes.
+          </p>
+        </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
@@ -181,7 +222,7 @@ function ProjectsSection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="section-padding bg-dark-blue/50">
+    <section id="contact" className="py-16 px-4 bg-dark-blue/50">
       <div className="max-w-4xl mx-auto">
         <h3 className="text-3xl font-bold mb-12 text-center">Contact</h3>
         <ContactForm />
@@ -194,13 +235,15 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   return (
-    <div className="min-h-screen bg-dark text-white">
+    <div className="min-h-screen bg-dark">
       <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSectionContainer />
-      <ProjectsSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <SkillsSectionContainer />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
       <BackToTop />
     </div>
   );
