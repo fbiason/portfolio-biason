@@ -5,9 +5,19 @@ import ProjectCard from './components/ProjectCard';
 import ContactForm from './components/ContactForm';
 import SkillsSection from './components/SkillsSection';
 import BackToTop from './components/BackToTop';
+import ExperienceSection from './components/ExperienceSection';
 import { translations } from './translations';
 
 function NavBar({ isMenuOpen, setIsMenuOpen, language, toggleLanguage }) {
+  const menuItems = [
+    { id: "home", label: translations[language].home },
+    { id: "about", label: translations[language].about },
+    { id: "skills", label: translations[language].skills },
+    { id: "experience", label: translations[language].experience },
+    { id: "projects", label: translations[language].projects },
+    { id: "contact", label: translations[language].contact },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 right-0 bg-dark-blue bg-opacity-90 backdrop-blur-md z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,18 +27,15 @@ function NavBar({ isMenuOpen, setIsMenuOpen, language, toggleLanguage }) {
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
-            <a href="#about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-              {translations[language].aboutMe}
-            </a>
-            <a href="#skills" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-              {translations[language].skills}
-            </a>
-            <a href="#projects" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-              {translations[language].projects}
-            </a>
-            <a href="#contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-              {translations[language].contact}
-            </a>
+            {menuItems.map((menuItem) => (
+              <a 
+                key={menuItem.id} 
+                href={`#${menuItem.id}`} 
+                className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                {menuItem.label}
+              </a>
+            ))}
             <button
               onClick={toggleLanguage}
               className="flex items-center space-x-1 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -59,18 +66,15 @@ function NavBar({ isMenuOpen, setIsMenuOpen, language, toggleLanguage }) {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              {translations[language].aboutMe}
-            </a>
-            <a href="#skills" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              {translations[language].skills}
-            </a>
-            <a href="#projects" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              {translations[language].projects}
-            </a>
-            <a href="#contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              {translations[language].contact}
-            </a>
+            {menuItems.map((menuItem) => (
+              <a 
+                key={menuItem.id} 
+                href={`#${menuItem.id}`} 
+                className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                {menuItem.label}
+              </a>
+            ))}
           </div>
         </div>
       )}
@@ -262,7 +266,7 @@ function App() {
   };
   
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="bg-background text-white min-h-screen">
       <NavBar 
         isMenuOpen={isMenuOpen} 
         setIsMenuOpen={setIsMenuOpen}
@@ -273,6 +277,7 @@ function App() {
         <HeroSection language={language} />
         <AboutSection language={language} />
         <SkillsSectionContainer language={language} />
+        <ExperienceSection language={language} />
         <ProjectsSection language={language} />
         <ContactSection language={language} />
       </main>
