@@ -129,11 +129,21 @@ function AboutSection({ language }) {
     <section id="about" className="py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <h3 className="text-3xl font-bold mb-6">{translations[language].aboutMe}</h3>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <p className="text-gray-300">
               {translations[language].aboutDescription}
             </p>
+          </div>
+          <div className="flex justify-center">
+            <motion.img
+              src="/images/biason.jpg"
+              alt="Franco Biason"
+              className="w-64 h-64 object-cover rounded-full shadow-xl"
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            />
           </div>
         </div>
       </div>
