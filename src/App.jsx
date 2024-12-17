@@ -11,7 +11,7 @@ import { translations } from './translations';
 function NavBar({ isMenuOpen, setIsMenuOpen, language, toggleLanguage }) {
   const menuItems = [
     { id: "home", label: translations[language].home },
-    { id: "about", label: translations[language].about },
+    { id: "about", label: translations[language].aboutMe },
     { id: "skills", label: translations[language].skills },
     { id: "experience", label: translations[language].experience },
     { id: "projects", label: translations[language].projects },
@@ -135,7 +135,7 @@ function AboutSection({ language }) {
         <h3 className="text-3xl font-bold mb-6">{translations[language].aboutMe}</h3>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <p className="text-gray-300">
+            <p className="text-gray-300 text-justify">
               {translations[language].aboutDescription}
             </p>
           </div>

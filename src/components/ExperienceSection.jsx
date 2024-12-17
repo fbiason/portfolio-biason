@@ -47,10 +47,10 @@ const ExperienceCard = ({ exp, language }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-dark-blue/50 rounded-lg overflow-hidden hover:bg-dark-blue/70 transition-colors"
+      className="bg-dark-blue/50 rounded-lg overflow-hidden hover:bg-dark-blue/70 transition-all duration-300"
     >
       <div 
-        className="p-6 cursor-pointer flex items-start gap-4"
+        className="p-6 cursor-pointer flex items-start gap-4 transition-colors duration-300"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="p-3 bg-primary/20 rounded-full text-primary">
@@ -66,7 +66,10 @@ const ExperienceCard = ({ exp, language }) => {
               <span className="text-sm text-gray-400">{exp.period}</span>
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
+                transition={{ 
+                  duration: 0.6,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
               >
                 <FaChevronDown className="text-gray-400" />
               </motion.div>
@@ -77,14 +80,61 @@ const ExperienceCard = ({ exp, language }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="px-6 pb-6"
+            initial={{ height: 0, opacity: 0, scale: 0.95 }}
+            animate={{ 
+              height: "auto", 
+              opacity: 1, 
+              scale: 1,
+              transition: {
+                height: {
+                  duration: 0.6,
+                  ease: [0.4, 0, 0.2, 1]
+                },
+                opacity: {
+                  duration: 0.4,
+                  ease: "easeInOut",
+                  delay: 0.1
+                },
+                scale: {
+                  duration: 0.4,
+                  ease: "easeOut",
+                  delay: 0.1
+                }
+              }
+            }}
+            exit={{ 
+              height: 0, 
+              opacity: 0,
+              scale: 0.95,
+              transition: {
+                height: {
+                  duration: 0.6,
+                  ease: [0.4, 0, 0.2, 1]
+                },
+                opacity: {
+                  duration: 0.25,
+                  ease: "easeInOut"
+                },
+                scale: {
+                  duration: 0.3,
+                  ease: "easeIn"
+                }
+              }
+            }}
+            className="overflow-hidden"
           >
-            <div className="pl-16">
-              <p className="text-gray-300">{expTranslations.description}</p>
+            <div className="px-6 pb-6">
+              <div className="pl-16">
+                <motion.p 
+                  initial={{ y: 10 }}
+                  animate={{ y: 0 }}
+                  exit={{ y: 10 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-gray-300"
+                >
+                  {expTranslations.description}
+                </motion.p>
+              </div>
             </div>
           </motion.div>
         )}
