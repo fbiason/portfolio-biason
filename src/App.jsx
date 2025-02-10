@@ -191,7 +191,7 @@ const projects = [
   {
     title: "Escuela de Fútbol Rosales",
     description: "Escuela de Formación de Fútbol",
-    image: "/images/escuela-futbol.mkv",
+    image: "/images/escuela-futbol.mp4",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://www.escueladefutbolrosales.com.ar/"
   },
