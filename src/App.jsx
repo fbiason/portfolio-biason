@@ -170,7 +170,7 @@ const projects = [
   {
     title: "Biason Automotores",
     description: "Agencia de compra venta de vehículos",
-    image: "/images/biason-automotores.mkv",
+    image: "/images/biason-automotores.mp4",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://biasonautomotores.com.ar/"
   },
