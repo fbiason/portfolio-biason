@@ -170,13 +170,21 @@ function SkillsSectionContainer({ language }) {
 const projects = [
   // Autogestionables
   {
+    title: "Webs Autogestionables",
+    isTitle: true
+  },
+  {
     title: "La Bancaria",
-    description: "WordPress",
+    description: "Sindicato Bancario de Santa Cruz",
     image: "/images/labancaria.mp4",
     tags: ["WordPress"],
     link: "https://labancariasantacruz.org.ar/"
   },
   // Corporativo
+  {
+    title: "Corporativo",
+    isTitle: true
+  },
   {
     title: "Biason Automotores",
     description: "Agencia de compra venta de vehículos",
@@ -200,6 +208,10 @@ const projects = [
   },
   // Landing Pages
   {
+    title: "Landing Pages",
+    isTitle: true
+  },
+  {
     title: "ML Legales",
     description: "Servicios legales",
     image: "/images/ml-legales.mp4",
@@ -214,6 +226,10 @@ const projects = [
     link: "https://geoforza.com.ar/"
   },
   // E-Commerce
+  {
+    title: "E-Commerce",
+    isTitle: true
+  },
   {
     title: "Original1",
     description: "Tienda de ropa",
@@ -250,7 +266,11 @@ function ProjectsSection({ language }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            project.isTitle ? (
+              <h2 key={index} className="col-span-full text-2xl font-bold text-left">{project.title}</h2>
+            ) : (
+              <ProjectCard key={index} {...project} />
+            )
           ))}
         </div>
       </div>

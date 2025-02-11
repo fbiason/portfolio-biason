@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaAngular, FaWordpress, FaPython, FaWater } from 'react-icons/fa';
-import { SiVtex, SiMicrosoftoffice, SiGoogledrive, SiPowerbi } from 'react-icons/si';
+import { SiVtex, SiMicrosoftoffice, SiGoogledrive, SiPowerbi, SiVisualstudiocode } from 'react-icons/si';
 
 const hardSkills = [
   { name: "HTML", icon: FaHtml5, color: "text-[#E44D26]", percentage: 90 },
@@ -28,7 +28,8 @@ const tools = [
   { name: "Microsoft Office", icon: SiMicrosoftoffice },
   { name: "Google Drive", icon: SiGoogledrive },
   { name: "Power BI", icon: SiPowerbi },
-  { name: "WindSurf", icon: FaWater }
+  { name: "WindSurf", icon: FaWater },
+  { name: "Visual Studio Code", icon: SiVisualstudiocode }
 ];
 
 const SkillIcon = ({ Icon, name, color, percentage }) => (

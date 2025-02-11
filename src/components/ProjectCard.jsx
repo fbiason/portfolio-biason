@@ -54,7 +54,7 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
             </motion.a>
           </div>
           
-          <p className="text-gray-300 text-sm transform opacity-60 group-hover:opacity-100 transition-all duration-500">
+          <p className="text-gray-300 text-sm text-left transform opacity-60 group-hover:opacity-100 transition-all duration-500">
             {description}
           </p>
           
