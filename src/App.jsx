@@ -177,7 +177,7 @@ const projects = [
   {
     title: "ML Legales",
     description: "Estudio Jurídico",
-    image: "/images/ml-legales.mkv",
+    image: "/images/ml-legales.mp4",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://mllegales.com.ar/"
   },
@@ -198,23 +198,30 @@ const projects = [
   {
     title: "La Bancaria Santa Cruz",
     description: "Sindicato Bancario",
-    image: "/images/labancaria.mkv",
+    image: "/images/labancaria.mp4",
     tags: ["WordPress"],
     link: "https://labancariasantacruz.org.ar/"
   },
   {
     title: "TEA Santa Cruz",
     description: "Fundación TEA Santa Cruz",
-    image: "/images/tea.mkv",
+    image: "/images/tea.mp4",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://fundacionteasantacruz.org.ar/"
   },
   {
     title: "Vefrek",
     description: "Catálogo del rubro automotor",
-    image: "/images/vefrek.mkv",
+    image: "/images/vefrek.mp4",
     tags: ["React", "Tailwind", "JavaScript", "TypeScript"],
     link: "https://vefrek.com/"
+  },
+  {
+    title: "Original1",
+    description: "Tienda de ropa",
+    image: "/images/original1.mp4",
+    tags: ["Shopify"],
+    link: "https://original-one.com/"
   }
 ];
 
