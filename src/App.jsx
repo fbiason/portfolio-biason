@@ -7,6 +7,7 @@ import SkillsSection from './components/SkillsSection';
 import BackToTop from './components/BackToTop';
 import ExperienceSection from './components/ExperienceSection';
 import { translations } from './translations';
+import "./App.css";
 
 function NavBar({ isMenuOpen, setIsMenuOpen, language, toggleLanguage }) {
   const menuItems = [
@@ -167,40 +168,21 @@ function SkillsSectionContainer({ language }) {
 }
 
 const projects = [
+  // Autogestionables
+  {
+    title: "La Bancaria",
+    description: "WordPress",
+    image: "/images/labancaria.mp4",
+    tags: ["WordPress"],
+    link: "https://labancariasantacruz.org.ar/"
+  },
+  // Corporativo
   {
     title: "Biason Automotores",
     description: "Agencia de compra venta de vehículos",
     image: "/images/biason-automotores.mp4",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "https://biasonautomotores.com.ar/"
-  },
-  {
-    title: "ML Legales",
-    description: "Estudio Jurídico",
-    image: "/images/ml-legales.mp4",
-    tags: ["HTML", "CSS", "JavaScript"],
-    link: "https://mllegales.com.ar/"
-  },
-  {
-    title: "Ecommerce - VTEX",
-    description: "Modelo de Ecommerce desarrollado con VTEX IO",
-    image: "/images/ecommerce-vtex.mp4",
-    tags: ["VTEX IO"],
-    link: "#"
-  },
-  {
-    title: "Escuela de Fútbol Rosales",
-    description: "Escuela de Formación de Fútbol",
-    image: "/images/escuela-futbol.mp4",
-    tags: ["HTML", "CSS", "JavaScript"],
-    link: "https://www.escueladefutbolrosales.com.ar/"
-  },
-  {
-    title: "La Bancaria Santa Cruz",
-    description: "Sindicato Bancario",
-    image: "/images/labancaria.mp4",
-    tags: ["WordPress"],
-    link: "https://labancariasantacruz.org.ar/"
   },
   {
     title: "TEA Santa Cruz",
@@ -216,12 +198,35 @@ const projects = [
     tags: ["React", "Tailwind", "JavaScript", "TypeScript"],
     link: "https://vefrek.com/"
   },
+  // Landing Pages
+  {
+    title: "ML Legales",
+    description: "Servicios legales",
+    image: "/images/ml-legales.mp4",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://mllegales.com.ar/"
+  },
+  {
+    title: "GEOFORZA",
+    description: "Soluciones Integrales",
+    image: "/images/geoforza.png",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://geoforza.com.ar/"
+  },
+  // E-Commerce
   {
     title: "Original1",
     description: "Tienda de ropa",
     image: "/images/original1.mp4",
     tags: ["Shopify"],
     link: "https://original-one.com/"
+  },
+  {
+    title: "VTEX",
+    description: "Plataforma de comercio electrónico",
+    image: "/images/ecommerce-vtex.mp4",
+    tags: ["E-Commerce"],
+    link: "https://vtex.com/"
   }
 ];
 
@@ -235,15 +240,15 @@ function ProjectsSection({ language }) {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h3 className="text-4xl font-bold mb-4">
+          <h3 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="gradient-text">{translations[language].featuredProjects}</span>
           </h3>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-xl mx-auto text-center">
             {translations[language].projectsDescription}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
@@ -255,9 +260,9 @@ function ProjectsSection({ language }) {
 
 function ContactSection({ language }) {
   return (
-    <section id="contact" className="py-16 px-4 bg-dark-blue/50">
-      <div className="max-w-4xl mx-auto">
-        <h3 className="text-3xl font-bold mb-12 text-center">{translations[language].contact}</h3>
+    <section id="contact" className="py-12 px-4 bg-dark-blue/50">
+      <div className="max-w-3xl mx-auto">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-center">{translations[language].contact}</h3>
         <ContactForm language={language} />
       </div>
     </section>
