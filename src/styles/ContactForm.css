@@ -1,22 +1,42 @@
-/* Contenedor principal */
 .contact-container {
-  max-width: 600px;
+  max-width: 700px;
   margin: auto;
+  width: 100%;
   padding: 2rem;
   text-align: center;
-  background: rgba(15, 23, 42, 0.9);
+  background-color: rgba(30, 41, 59, 0.9);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos del formulario */
+.contact-section {
+  padding: 4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+
+  .contact-title {
+    font-size: 1.75rem;
+  }
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Grupos de formulario */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -46,7 +66,6 @@
   outline: none;
 }
 
-/* Botón de envío */
 .contact-button {
   width: 100%;
   background-color: #3b82f6;
@@ -68,7 +87,6 @@
   cursor: not-allowed;
 }
 
-/* Mensajes de estado */
 .success-message,
 .error-message {
   padding: 1rem;
@@ -96,3 +114,4 @@
     padding: 10px;
   }
 }
+

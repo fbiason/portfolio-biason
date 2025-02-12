@@ -1,4 +1,68 @@
-/* 🔹 Tarjeta de Proyecto */
+.projects-section {
+  padding: 5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  background-color: #0f172a;
+}
+
+.projects-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.projects-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.projects-description {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #d1d5db;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-category {
+  grid-column: span 3;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 1.75rem;
+  }
+
+  .projects-description {
+    font-size: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .project-category {
+    grid-column: span 1;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+}
+
 .project-card {
   border-radius: 12px;
   overflow: hidden;
