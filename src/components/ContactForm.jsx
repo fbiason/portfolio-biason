@@ -1,20 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-import { EMAILJS_CONFIG } from '../config/emailjs';
+import { useState } from "react";
+import { motion } from "framer-motion";
 import "../styles/ContactForm.css";
 
 const ContactForm = ({ language }) => {
-  const form = useRef();
-  const [status, setStatus] = useState({
-    submitting: false,
-    submitted: false,
-    error: null
-  });
-
-  useEffect(() => {
-    emailjs.init(EMAILJS_CONFIG.publicKey);
-  }, []);
+  const [status, setStatus] = useState({ submitting: false, submitted: false, error: null });
 
   const messages = {
     es: {
@@ -41,24 +30,19 @@ const ContactForm = ({ language }) => {
     e.preventDefault();
     setStatus({ submitting: true, submitted: false, error: null });
 
-    const templateParams = {
-      from_name: form.current.user_name.value,
-      from_email: form.current.user_email.value,
-      message: form.current.message.value,
-      to_email: 'franco.biason@gmail.com'
-    };
+    const formData = new FormData(e.target);
 
     try {
-      await emailjs.send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        templateParams
-      );
+      const response = await fetch("https://formsubmit.co/ajax/franco.biason@gmail.com", {
+        method: "POST",
+        body: formData
+      });
+
+      if (!response.ok) throw new Error("Error al enviar el formulario");
 
       setStatus({ submitting: false, submitted: true, error: null });
-      form.current.reset();
+      e.target.reset();
     } catch (error) {
-      console.error('Error sending email:', error);
       setStatus({ submitting: false, submitted: false, error: true });
     }
   };
@@ -70,21 +54,24 @@ const ContactForm = ({ language }) => {
       transition={{ duration: 0.5 }}
       className="contact-container"
     >
-      <form ref={form} onSubmit={handleSubmit} className="contact-form">
+      <form onSubmit={handleSubmit} className="contact-form">
         <div className="form-group">
           <label htmlFor="name">{messages[language]?.name || messages.en.name}</label>
-          <input type="text" name="user_name" id="name" required />
+          <input type="text" name="name" id="name" required />
         </div>
 
         <div className="form-group">
           <label htmlFor="email">{messages[language]?.email || messages.en.email}</label>
-          <input type="email" name="user_email" id="email" required />
+          <input type="email" name="email" id="email" required />
         </div>
 
         <div className="form-group">
           <label htmlFor="message">{messages[language]?.message || messages.en.message}</label>
           <textarea name="message" id="message" rows="4" required></textarea>
         </div>
+
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://tusitio.com/gracias.html" />
 
         <button type="submit" disabled={status.submitting} className="contact-button">
           {status.submitting ? messages[language]?.sending : messages[language]?.send}
