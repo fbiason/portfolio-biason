@@ -1,0 +1,23 @@
+/* Styles for ExperienceSection component */
+
+.experience-section {
+  padding: 4rem 2rem;
+}
+
+.experience-card {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 2rem 1rem;
+  }
+
+  .experience-card {
+    padding: 1rem;
+  }
+}

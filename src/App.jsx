@@ -7,7 +7,7 @@ import SkillsSection from './components/SkillsSection';
 import BackToTop from './components/BackToTop';
 import ExperienceSection from './components/ExperienceSection';
 import { translations } from './translations';
-import "./App.css";
+import "./styles/App.css";
 
 function NavBar({ isMenuOpen, setIsMenuOpen, language, toggleLanguage }) {
   const menuItems = [
@@ -85,22 +85,22 @@ function NavBar({ isMenuOpen, setIsMenuOpen, language, toggleLanguage }) {
 
 function HeroSection({ language }) {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <motion.h2 
+    <section id="home" className="hero">
+      <div className="hero-content">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-7xl font-bold mb-6"
+          className="hero-title"
         >
           {translations[language].welcome}
-          <span className="gradient-text"> {translations[language].im}</span>
+          <span className="gradient-text hero-name"> {translations[language].im}</span>
         </motion.h2>
         
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-xl text-gray-300 mb-8"
+          className="hero-subtitle"
         >
           {translations[language].role}
         </motion.p>
@@ -109,20 +109,10 @@ function HeroSection({ language }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="flex justify-center gap-4"
+          className="hero-buttons"
         >
-          <a
-            href="#contact"
-            className="bg-primary text-white hover:bg-accent px-6 py-3 rounded-full font-semibold transition-colors duration-300"
-          >
-            {translations[language].contactMe}
-          </a>
-          <a
-            href="#projects"
-            className="border-2 border-primary text-white hover:bg-primary hover:border-primary px-6 py-3 rounded-full font-semibold transition-colors duration-300"
-          >
-            {translations[language].viewProjects}
-          </a>
+          <a href="#contact" className="btn primary">{translations[language].contactMe}</a>
+          <a href="#projects" className="btn secondary">{translations[language].viewProjects}</a>
         </motion.div>
       </div>
     </section>
@@ -158,9 +148,9 @@ function AboutSection({ language }) {
 
 function SkillsSectionContainer({ language }) {
   return (
-    <section id="skills" className="py-16 px-4 bg-dark-blue/50">
-      <div className="max-w-6xl mx-auto">
-        <h3 className="text-3xl font-bold mb-12 text-center">{translations[language].skills}</h3>
+    <section id="skills" className="skills">
+       <div className="skills-content">
+       <h3 className="skills-heading">{translations[language].skills}</h3>
         <SkillsSection />
       </div>
     </section>

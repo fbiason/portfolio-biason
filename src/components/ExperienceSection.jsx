@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBriefcase, FaChevronDown } from 'react-icons/fa';
 import { useState } from 'react';
 import { translations } from '../translations';
+import "../styles/ExperienceSection.css";
 
 const getExperienceKey = (company) => {
   const keyMap = {

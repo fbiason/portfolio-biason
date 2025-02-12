@@ -1,0 +1,82 @@
+/* Styles for ProjectCard component */
+
+.project-card {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.project-card p {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+
+  .project-card img {
+    border-radius: 5px;
+  }
+
+  .project-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ✅ Estilos de los Proyectos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.project-card p {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+
+  .project-card img {
+    border-radius: 5px;
+  }
+
+  .project-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+}

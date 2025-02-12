@@ -1,0 +1,236 @@
+/* 🔹 Contenedor General de Habilidades */
+.skills {
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.skills-content {
+  max-width: 1200px;
+  width: 90%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem; 
+  border-radius: 20px; 
+  background-color: rgba(51, 59, 80, 0.283); 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.skills-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 3rem 1rem;
+  }
+
+  .skills-content {
+    width: 95%;
+  }
+
+  .skills-heading {
+    font-size: 1.75rem;
+  }
+}
+
+
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  gap: 2rem;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 1000px; 
+  margin: 0 auto; 
+}
+
+.skills-section h4 {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  max-width: 900px;
+}
+
+.hard-skills-container, .tools-container {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hard-skills-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); 
+  gap: 1rem;
+  max-width: 1000px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hard-skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-icon {
+    flex: 1 1 100%;
+    max-width: 80px;
+    margin-bottom: 1rem;
+  }
+}
+
+.soft-skills-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .soft-skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.soft-skill {
+  padding: 14px 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #ddd;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease-in-out;
+}
+
+.soft-skill:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tools-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  max-width: 900px;
+}
+
+@media (max-width: 768px) {
+  .tools-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+  width: 120px;
+  position: relative;
+}
+
+.skill-card:hover {
+  transform: scale(1.1);
+}
+
+.progress-container {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-svg {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  transform: rotate(-90deg);
+}
+
+.bg-circle {
+  stroke: #333;
+  stroke-width: 4;
+  fill: transparent;
+  r: 30;
+  cx: 32;
+  cy: 32;
+}
+
+.progress-bar {
+  stroke-width: 4;
+  fill: transparent;
+  stroke-linecap: round;
+  transform-origin: center;
+}
+
+.icon-wrapper {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .icon-wrapper {
+    margin-top: 1rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .skill-icon {
+    font-size: 1.6rem;
+  }
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.percentage {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.html-color { stroke: #E44D26; color: #E44D26; }
+.css-color { stroke: #264DE4; color: #264DE4; }
+.js-color { stroke: #F7DF1E; color: #F7DF1E; }
+.react-color { stroke: #61DAFB; color: #61DAFB; }
+.angular-color { stroke: #DD0031; color: #DD0031; }
+.wordpress-color { stroke: #21759B; color: #21759B; }
+.vtex-color { stroke: #F71963; color: #F71963; }
+.python-color { stroke: #3776AB; color: #3776AB; }
+.default-color { stroke: #aaa; color: #aaa; }
+
+.hard-skills-container,
+.soft-skills-container,
+.tools-container {
+  text-align: left;
+}

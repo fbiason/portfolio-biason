@@ -1,0 +1,99 @@
+/* Styles for ContactForm component */
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+  padding: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #374151;
+  border-radius: 5px;
+  background-color: #1f2937;
+  color: white;
+}
+
+.contact-form button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 0.8rem;
+  }
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #374151;
+  border-radius: 5px;
+  background-color: #1f2937;
+  color: white;
+}
+
+.contact-form button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #2563eb;
+}
+
+/* ✅ Estilos del Formulario de Contacto */
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #374151;
+  border-radius: 5px;
+  background-color: #1f2937;
+  color: white;
+}
+
+.contact-form button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #2563eb;
+}
