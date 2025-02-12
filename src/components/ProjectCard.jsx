@@ -10,14 +10,14 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="group relative bg-dark-blue/30 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500"
+      className="project-card"
     >
-      <div className="aspect-video overflow-hidden">
+      <div className="project-media">
         {isVideo ? (
           <video
             src={image}
             alt={title}
-            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            className="media-content"
             autoPlay
             loop
             muted
@@ -27,27 +27,27 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            className="media-content"
           />
         )}
       </div>
 
       {/* Overlay por defecto */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-500" />
+      <div className="overlay" />
 
       {/* Overlay adicional en hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="overlay-hover" />
 
       {/* Contenido */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h4 className="text-xl font-bold text-white">{title}</h4>
+      <div className="project-content">
+        <div className="content-wrapper">
+          <div className="content-header">
+            <h4>{title}</h4>
             <motion.a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-primary/20 rounded-full text-primary hover:bg-primary hover:text-white transition-colors duration-300"
+              className="external-link"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -55,16 +55,13 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
             </motion.a>
           </div>
           
-          <p className="text-gray-300 text-sm text-left transform opacity-60 group-hover:opacity-100 transition-all duration-500">
+          <p className="description">
             {description}
           </p>
           
-          <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+          <div className="tags">
             {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-primary/20 text-primary rounded-full text-xs font-medium"
-              >
+              <span key={index} className="tag">
                 {tag}
               </span>
             ))}

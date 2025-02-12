@@ -7,25 +7,15 @@ const BackToTop = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 300);
     };
 
     window.addEventListener('scroll', toggleVisibility);
-
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
+    return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -36,23 +26,19 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-primary hover:bg-accent text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center transition-colors duration-300 z-50"
+          className="back-to-top"
           whileHover={{ y: -3 }}
           whileTap={{ scale: 0.95 }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8"
+            className="icon"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={3}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
           </svg>
         </motion.button>
       )}
