@@ -1,12 +1,12 @@
 export const translations = {
   es: {
-    welcome: "Bienvenido",
+    welcome: "Bienvenido ",
     im: "Soy Franco",
     role: "Licenciado en Administración & Web Developer",
     contactMe: "Contáctame",
     viewProjects: "Ver Proyectos",
     aboutMe: "Sobre Mí",
-    aboutDescription: "Soy licenciado en administración. Actualmente trabajo como Desarrollador Frontend con experiencia en React y tecnologías web modernas. Me enfoco en crear aplicaciones web responsivas y amigables para el usuario.",
+    aboutDescription: "Soy Licenciado en Administración y estudiante avanzado en la Técnicatura Superior en Ciencias de Datos e IA. Actualmente trabajo como Desarrollador Frontend con experiencia en React y tecnologías web modernas. Me enfoco en crear aplicaciones web responsivas y amigables para el usuario.",
     skills: "Habilidades",
     experience: "Experiencia",
     projects: "Proyectos",
@@ -16,7 +16,7 @@ export const translations = {
     experiences: {
       coderhouse: {
         role: "Tutor",
-        description: "Tutor: Community Manager & Publicidad. Customer Experience (CX). IA Aplicada al Marketing Digital."
+        description: "Tutor: Community Manager & Publicidad. Customer Experience (CX). IA Aplicada al Marketing Digital. Oratoria. SEO"
       },
       redclover: {
         role: "Desarrollador",
@@ -31,7 +31,7 @@ export const translations = {
         description: "Responsable de la gestión financiera y administrativa de la empresa, incluyendo presupuestos, informes financieros, análisis de costos, planificación estratégica, y optimización de recursos."
       },
       freelance: {
-        role: "Desarrollador Web",
+        role: "Desarrollador y Mantenimiento Web",
         description: "Desarrollo, mantenimiento y optimización web. Crear y mantener sitios web funcionales y atractivos utilizando lenguajes de programación como HTML, CSS, JavaScript y React."
       }
     }
@@ -43,7 +43,7 @@ export const translations = {
     contactMe: "Contact Me",
     viewProjects: "View Projects",
     aboutMe: "About Me",
-    aboutDescription: "I have a degree in Business Administration. Currently working as a Frontend Developer with experience in React and modern web technologies. I focus on creating responsive and user-friendly web applications.",
+    aboutDescription: "I have a degree in Business Administration and am an advanced student in the Advanced Technician's Program in Data Science and AI. I currently work as a Frontend Developer with experience in React and modern web technologies. I focus on creating responsive and user-friendly web applications.",
     skills: "Skills",
     experience: "Experience",
     projects: "Projects",
@@ -53,7 +53,7 @@ export const translations = {
     experiences: {
       coderhouse: {
         role: "Tutor",
-        description: "Tutor: Community Manager & Advertising. Customer Experience (CX). AI Applied to Digital Marketing."
+        description: "Tutor: Community Manager & Advertising. Customer Experience (CX). AI Applied to Digital Marketing. Oratory. SEO"
       },
       redclover: {
         role: "Developer",

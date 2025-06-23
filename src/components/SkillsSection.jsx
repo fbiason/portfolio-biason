@@ -1,5 +1,5 @@
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaAngular, FaWordpress, FaPython, FaWater } from 'react-icons/fa';
-import { SiVtex, SiMicrosoftoffice, SiGoogledrive, SiPowerbi, SiVisualstudiocode } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaAngular, FaWordpress, FaPython, FaWater, FaGithub, FaTrello } from 'react-icons/fa';
+import { SiVtex, SiMicrosoftoffice, SiGoogledrive, SiPowerbi, SiVisualstudiocode, SiVercel } from 'react-icons/si';
 import "../styles/SkillsSection.css";
 
 const hardSkills = [
@@ -10,7 +10,11 @@ const hardSkills = [
   { name: "Angular", icon: FaAngular, color: "angular-color", percentage: 35 },
   { name: "WordPress", icon: FaWordpress, color: "wordpress-color", percentage: 90 },
   { name: "VTEX", icon: SiVtex, color: "vtex-color", percentage: 75 },
-  { name: "Python", icon: FaPython, color: "python-color", percentage: 60 }
+  { name: "Python", icon: FaPython, color: "python-color", percentage: 60 },
+  { name: "R", isImage: true, imageSrc: "/images/r.svg", color: "r-color", percentage: 30 },
+  { name: "Shopify", isImage: true, imageSrc: "/images/shopify.webp", color: "shopify-color", percentage: 80 },
+  { name: "TiendaNube", isImage: true, imageSrc: "/images/tiendanube.png", color: "tiendanube-color", percentage: 80 },
+  { name: "Moodle", isImage: true, imageSrc: "/images/moodle.webp", color: "moodle-color", percentage: 80 }
 ];
 
 const softSkills = [
@@ -29,10 +33,13 @@ const tools = [
   { name: "Google Drive", icon: SiGoogledrive },
   { name: "Power BI", icon: SiPowerbi },
   { name: "WindSurf", icon: FaWater },
-  { name: "Visual Studio Code", icon: SiVisualstudiocode }
+  { name: "Visual Studio Code", icon: SiVisualstudiocode },
+  { name: "GitHub", icon: FaGithub },
+  { name: "Vercel", icon: SiVercel },
+  { name: "Trello", icon: FaTrello }
 ];
 
-const SkillIcon = ({ Icon, name, color, percentage }) => (
+const SkillIcon = ({ Icon, name, color, percentage, isImage, imageSrc }) => (
   <div className="skill-card">
     <div className="progress-container">
       <svg className="progress-svg">
@@ -49,7 +56,20 @@ const SkillIcon = ({ Icon, name, color, percentage }) => (
         />
       </svg>
       <div className="icon-wrapper">
-        <Icon className={`skill-icon ${color}`} />
+        {isImage ? (
+          <img 
+            src={imageSrc} 
+            alt={name} 
+            className={`skill-icon ${color}`} 
+            style={{ 
+              width: '32px', 
+              height: name === "TiendaNube" ? 'auto' : '32px',
+              filter: name === "TiendaNube" ? 'brightness(0) invert(1)' : 'none'
+            }} 
+          />
+        ) : (
+          <Icon className={`skill-icon ${color}`} />
+        )}
       </div>
     </div>
     <span className="skill-name">{name}</span>
@@ -72,6 +92,8 @@ const SkillsSection = () => {
               name={skill.name}
               color={skill.color}
               percentage={skill.percentage}
+              isImage={skill.isImage}
+              imageSrc={skill.imageSrc}
             />
           ))}
         </div>

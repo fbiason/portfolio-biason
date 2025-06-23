@@ -126,6 +126,13 @@ const projects = [
     tags: ["WordPress"],
     link: "https://labancariasantacruz.org.ar/"
   },
+  {
+    title: "La Mesa de Jorge",
+    description: "Noticias y Publicidades",
+    image: "/images/lmj.mp4",
+    tags: ["WordPress"],
+    link: "https://lamesadejorge.com.ar/"
+  },
   // Corporativo
   {
     title: "Corporativo",
@@ -152,6 +159,20 @@ const projects = [
     tags: ["React", "Tailwind", "JavaScript", "TypeScript"],
     link: "https://vefrek.com/"
   },
+  {
+  title: "Escuela de Formación de Fútbol Rosales",
+  description: "Escuela de Fútbol",
+  image: "/images/escuela-futbol.mp4",
+  tags: ["HTML", "CSS", "JavaScript"],
+  link: "https://www.escueladefutbolrosales.com.ar/"
+},
+{
+  title: "GEOFORZA",
+  description: "Soluciones Integrales",
+  image: "/images/geoforza.png",
+  tags: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind", "Vite"],
+  link: "https://geoforza.com.ar/"
+},
   // Landing Pages
   {
     title: "Landing Pages",
@@ -165,11 +186,11 @@ const projects = [
     link: "https://mllegales.com.ar/"
   },
   {
-    title: "GEOFORZA",
-    description: "Soluciones Integrales",
-    image: "/images/geoforza.png",
+    title: "María Florencia Budeguer Barrenechea",
+    description: "Psicóloga",
+    image: "/images/florencia.mp4",
     tags: ["HTML", "CSS", "JavaScript"],
-    link: "https://geoforza.com.ar/"
+    link: "https://mgflorenciabudeguer.com.ar/"
   },
   // E-Commerce
   {

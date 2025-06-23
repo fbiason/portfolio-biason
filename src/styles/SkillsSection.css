@@ -68,7 +68,7 @@
 
 .hard-skills-container {
   display: grid;
-  grid-template-columns: repeat(8, 1fr); 
+  grid-template-columns: repeat(6, 1fr); 
   gap: 1rem;
   max-width: 1000px;
   justify-content: center;
@@ -122,9 +122,9 @@
 
 .tools-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 @media (max-width: 768px) {
@@ -227,6 +227,10 @@
 .wordpress-color { stroke: #21759B; color: #21759B; }
 .vtex-color { stroke: #F71963; color: #F71963; }
 .python-color { stroke: #3776AB; color: #3776AB; }
+.r-color { stroke: #276DC3; color: #276DC3; }
+.shopify-color { stroke: #7AB55C; color: #7AB55C; }
+.tiendanube-color { stroke: #0086FF; color: #0086FF; }
+.moodle-color { stroke: #F98012; color: #F98012; }
 .default-color { stroke: #aaa; color: #aaa; }
 
 .hard-skills-container,

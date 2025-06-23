@@ -10,7 +10,7 @@ const getExperienceKey = (company) => {
     "RedClover": "redclover",
     "InSET": "inset",
     "Even Cabañas": "even",
-    "Desarrollador Web": "freelance"
+    "Web Developer": "freelance"
   };
   return keyMap[company];
 };
@@ -20,7 +20,7 @@ const experiences = [
   { company: "RedClover", period: "Julio 2024 - Presente" },
   { company: "InSET", period: "Febrero 2021 - Presente" },
   { company: "Even Cabañas", period: "Octubre 2022 - Presente" },
-  { company: "Desarrollador Web", period: "Febrero 2021 - Presente" }
+  { company: "Web Developer", period: "Febrero 2021 - Presente" }
 ];
 
 const ExperienceCard = ({ exp, language }) => {
