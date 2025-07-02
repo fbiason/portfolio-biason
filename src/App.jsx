@@ -179,6 +179,13 @@ const projects = [
     isTitle: true
   },
   {
+    title: "Dr. Walter Gramajo",
+    description: "Médico Neurólogo",
+    image: "/images/drgramajo.mp4",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://drwaltergramajo.com.ar/"
+  },
+  {
     title: "ML Legales",
     description: "Servicios legales",
     image: "/images/ml-legales.mp4",
