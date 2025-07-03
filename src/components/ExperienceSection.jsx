@@ -17,7 +17,7 @@ const getExperienceKey = (company) => {
 
 const experiences = [
   { company: "CoderHouse", period: "Agosto 2022 - Presente" },
-  { company: "RedClover", period: "Julio 2024 - Presente" },
+  { company: "RedClover", period: "Junio 2024 - Presente" },
   { company: "InSET", period: "Febrero 2021 - Presente" },
   { company: "Even Cabañas", period: "Octubre 2022 - Presente" },
   { company: "Web Developer", period: "Febrero 2021 - Presente" }
