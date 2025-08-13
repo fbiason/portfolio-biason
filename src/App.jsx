@@ -126,13 +126,13 @@ const projects = [
     tags: ["WordPress"],
     link: "https://labancariasantacruz.org.ar/"
   },
-  {
+ /* {
     title: "La Mesa de Jorge",
     description: "Noticias y Publicidades",
     image: "/images/lmj.mp4",
     tags: ["WordPress"],
     link: "https://lamesadejorge.com.ar/"
-  },
+  },*/
   // Corporativo
   {
     title: "Corporativo",
