@@ -217,7 +217,14 @@ const projects = [
     image: "/images/ecommerce-vtex.mp4",
     tags: ["E-Commerce"],
     link: "https://vtex.com/"
-  }
+  },
+  {
+    title: "Distribuidora Crecer",
+    description: "Tienda de ropa",
+    image: "/images/distribuidora-crecer.mp4",
+    tags: ["Tienda Nube"],
+    link: "https://distribuidoracrecer.com.ar/"
+  },
 ];
 
 function ProjectsSection({ language }) {
