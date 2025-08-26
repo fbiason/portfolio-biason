@@ -86,16 +86,6 @@ function AboutSection({ language }) {
           <div className="about-text">
             <p>{translations[language].aboutDescription}</p>
           </div>
-          <div className="about-image">
-            <motion.img
-              src="/images/biason.jpg"
-              alt="Franco Biason"
-              className="about-img"
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            />
-          </div>
         </div>
       </div>
     </section>
