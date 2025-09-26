@@ -6,6 +6,7 @@ import ContactForm from './components/ContactForm';
 import SkillsSection from './components/SkillsSection';
 import BackToTop from './components/BackToTop';
 import ExperienceSection from './components/ExperienceSection';
+import AWSPromoSection from './components/AWSPromoSection';
 import { translations } from './translations';
 import "./styles/App.css";
 
@@ -282,6 +283,7 @@ function App() {
       />
       <main>
         <HeroSection language={language} />
+        <AWSPromoSection language={language} translations={translations} />
         <AboutSection language={language} />
         <SkillsSectionContainer language={language} />
         <ExperienceSection language={language} />

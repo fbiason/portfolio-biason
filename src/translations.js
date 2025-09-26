@@ -13,6 +13,12 @@ export const translations = {
     featuredProjects: "Proyectos Destacados",
     projectsDescription: "Los invito a conocer algunos de mis trabajos recientes.",
     contact: "Contacto",
+    awsPromo: {
+      title: "Potencia tu negocio con AWS",
+      subtitle: "Descubre el poder de la nube",
+      description: "Lleva tu infraestructura al siguiente nivel con Amazon Web Services",
+      cta: "Explorar AWS"
+    },
     experiences: {
       coderhouse: {
         role: "Tutor",
@@ -50,6 +56,12 @@ export const translations = {
     featuredProjects: "Featured Projects",
     projectsDescription: "Here are some of my recent works. Each project represents a unique challenge and solution.",
     contact: "Contact",
+    awsPromo: {
+      title: "Power your business with AWS",
+      subtitle: "Discover the power of the cloud",
+      description: "Take your infrastructure to the next level with Amazon Web Services",
+      cta: "Explore AWS"
+    },
     experiences: {
       coderhouse: {
         role: "Tutor",

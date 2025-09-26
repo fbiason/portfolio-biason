@@ -1,0 +1,255 @@
+.aws-promo-section {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+  margin: 2rem 0;
+}
+
+.aws-promo-container {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.aws-promo-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 153, 0, 0.3);
+}
+
+.aws-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.aws-icon {
+  font-size: 4rem;
+  color: #FF9900;
+  filter: drop-shadow(0 0 20px rgba(255, 153, 0, 0.5));
+}
+
+.aws-content {
+  flex: 1;
+  text-align: left;
+}
+
+.aws-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.aws-subtitle {
+  font-size: 1.2rem;
+  color: #FF9900;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.aws-description {
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.aws-cta {
+  background: linear-gradient(45deg, #FF9900, #FFB84D);
+  color: #232F3E;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+}
+
+.aws-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+}
+
+/* Popup Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.popup-content {
+  background: linear-gradient(135deg, #232F3E 0%, #1a252f 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(255, 153, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #d1d5db;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.popup-close:hover {
+  background: rgba(255, 153, 0, 0.2);
+  color: #FF9900;
+}
+
+.popup-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.popup-icon {
+  font-size: 3rem;
+  color: #FF9900;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 20px rgba(255, 153, 0, 0.5));
+}
+
+.popup-header h2 {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.aws-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 153, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #FF9900;
+  margin-bottom: 1rem;
+}
+
+.feature h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.feature p {
+  color: #d1d5db;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.popup-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.popup-actions .btn {
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.popup-actions .primary {
+  background: linear-gradient(45deg, #FF9900, #FFB84D);
+  color: #232F3E;
+  box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+}
+
+.popup-actions .primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+}
+
+.popup-actions .secondary {
+  background: transparent;
+  color: #d1d5db;
+  border: 2px solid #d1d5db;
+}
+
+.popup-actions .secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aws-promo-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .aws-title {
+    font-size: 1.5rem;
+  }
+  
+  .aws-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .popup-actions {
+    flex-direction: column;
+  }
+  
+  .popup-content {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
